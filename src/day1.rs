@@ -1,14 +1,17 @@
 use std::path;
 
-fn run_day1(filename: &str) {
+use crate::input;
+use crate::array_math;
 
-    day1_part1(input::input_as_iter::<i64>(path::Path::new(filename)));
+pub fn run_day1(filename: &str) {
 
-    day1_part2(input::input_as_iter::<i64>(path::Path::new(filename)));
+    part1(input::input_as_iter::<i64>(path::Path::new(filename)));
+
+    part2(input::input_as_iter::<i64>(path::Path::new(filename)));
 
 }
 
-fn day1_part1(in_vals: Vec<i64>) -> u64{
+fn part1(in_vals: Vec<i64>) -> u64{
 
     let pos_diff = array_math::apply(
         array_math::diff::<i64>(in_vals),
@@ -23,7 +26,7 @@ fn day1_part1(in_vals: Vec<i64>) -> u64{
 
 }
 
-fn day1_part2(in_vals: Vec<i64>) -> u64{
+fn part2(in_vals: Vec<i64>) -> u64{
 
     let convolved = array_math::convolve(
         in_vals,
@@ -47,14 +50,15 @@ fn day1_part2(in_vals: Vec<i64>) -> u64{
 
 #[cfg(test)]
 mod tests {
-    use crate::*;
+
+    use crate::day1::*;
 
     #[test]
     fn test_day1_part1() {
         let test_input = vec![199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
         let target = 7;
 
-        assert_eq!(day1_part1(test_input), target);
+        assert_eq!(part1(test_input), target);
     }
 
     #[test]
@@ -62,6 +66,6 @@ mod tests {
         let test_input = vec![199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
         let target = 5;
 
-        assert_eq!(day1_part2(test_input), target);
+        assert_eq!(part2(test_input), target);
     }
 }
