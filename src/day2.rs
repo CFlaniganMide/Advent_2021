@@ -24,7 +24,7 @@ fn part1(in_arr: Vec<Instruction>) -> i64{
     let mut sub = Submarine::new();
 
     for instr in in_arr {
-        sub.do_instruction(instr);
+        sub.do_instruction_part1(instr);
     }
 
     return sub.get_horizontal()*sub.get_depth();
@@ -32,7 +32,13 @@ fn part1(in_arr: Vec<Instruction>) -> i64{
 
 
 fn part2(in_arr: Vec<submarine::Instruction>) -> i64{
-    return 0;
+    let mut sub = Submarine::new();
+
+    for instr in in_arr {
+        sub.do_instruction_part2(instr);
+    }
+
+    return sub.get_horizontal()*sub.get_depth();
 }
 
 
