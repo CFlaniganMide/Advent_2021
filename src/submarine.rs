@@ -3,6 +3,7 @@ use std::str::FromStr;
 pub struct Submarine {
     horizontal: i64,
     depth: i64,
+    aim: i64,
 }
 
 
@@ -10,6 +11,40 @@ pub struct Instruction {
     direction: String,
     value: i64,
 }
+
+impl Submarine {
+
+    pub fn do_instruction(&mut self, instr: Instruction) {
+        match instr.direction.as_str() {
+            "forward" => {
+                self.horizontal += instr.value;
+                self.depth += self.aim*instr.value;
+            },
+            "up" => self.depth -= self.aim,
+            "down" => self.depth += self.aim,
+            _ => panic!("direction {} is invalid", instr.direction),
+        }
+
+    }
+
+    pub fn new() -> Submarine {
+        return Submarine {horizontal: 0, depth: 0, aim: 0}
+    }
+
+    pub fn get_horizontal(&self) -> i64 {
+        return self.horizontal;
+    }
+
+    pub fn get_depth(&self) -> i64 {
+        return self.depth;
+    }
+
+    pub fn get_aim(&self) -> i64 {
+        return self.aim;
+    }
+
+}
+
 
 impl FromStr for Instruction {
     type Err = ();

@@ -5,9 +5,15 @@ use crate::array_math;
 
 pub fn run_day1(filename: &str) {
 
-    part1(input::input_as_iter::<i64>(path::Path::new(filename)));
+    println!(
+        "part 1: {}",
+        part1(input::input_as_iter::<i64>(path::Path::new(filename))),
+    );
 
-    part2(input::input_as_iter::<i64>(path::Path::new(filename)));
+    println!(
+        "part 2: {}",
+        part2(input::input_as_iter::<i64>(path::Path::new(filename))),
+    );
 
 }
 
@@ -19,8 +25,6 @@ fn part1(in_vals: Vec<i64>) -> u64{
     );
 
     let n_pos = array_math::count_true(pos_diff);
-
-    println!("Part 1: {} diffs greater than 0", n_pos);
 
     return n_pos;
 
@@ -40,8 +44,6 @@ fn part2(in_vals: Vec<i64>) -> u64{
     );
 
     let n_pos = array_math::count_true(pos_diff);
-
-    println!("Part 2: {} diffs greater than 0", n_pos);
 
     return n_pos;
 

@@ -16,7 +16,7 @@ pub fn input_as_iter<T: std::str::FromStr>(filename: &std::path::Path) -> Vec<T>
 
     let mut output = Vec::<T>::new();
 
-    for val in std::fs::read_to_string(filename).unwrap().split_whitespace() {
+    for val in std::fs::read_to_string(filename).unwrap().lines() {
 
         output.push(val.parse().unwrap());
 
