@@ -24,7 +24,7 @@ fn part1(in_vals: Vec<i64>) -> u64{
         |x| x > 0,
     );
 
-    let n_pos = array_math::count_true(pos_diff);
+    let n_pos = array_math::count_true(&pos_diff);
 
     return n_pos;
 
@@ -43,7 +43,7 @@ fn part2(in_vals: Vec<i64>) -> u64{
         |x| x > 0,
     );
 
-    let n_pos = array_math::count_true(pos_diff);
+    let n_pos = array_math::count_true(&pos_diff);
 
     return n_pos;
 

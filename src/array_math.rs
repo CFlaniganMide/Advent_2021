@@ -1,4 +1,3 @@
-
 pub fn diff<T>(list: Vec<T>) -> Vec<T> where T: std::ops::Sub<Output = T>, T: Copy{
 
     let mut output = Vec::<T>::new();
@@ -31,11 +30,11 @@ pub fn apply<Tin, Tout>(in_arr: Vec<Tin>, f: impl Fn(Tin) -> Tout) -> Vec<Tout> 
 }
 
 //
-pub fn count_true(in_arr: Vec<bool>) -> u64 {
+pub fn count_true(in_arr: &Vec<bool>) -> u64 {
     let mut count = 0;
 
     for val in in_arr {
-        if val {
+        if *val {
             count += 1;
         }
     }
@@ -71,6 +70,53 @@ pub fn convolve<T>(in_var: Vec<T>, kernel: Vec<T>, mode: &str) -> Vec<T>
             conv_res += kernel[j] * in_var[i + j];
         }
         out.push(conv_res);
+    }
+
+    return out;
+
+}
+
+
+pub fn binary_to_int(val: String) -> u64 {
+    assert!(val.len() < 64);
+
+    let mut output = 0;
+
+    for (i, x) in val.chars().rev().enumerate() {
+        match x {
+            '0' => output += 0,
+            '1' => output += 1 << i,
+            _ => panic!("{} not a valid binary character", x)
+        }
+    }
+
+    return output;
+
+}
+
+pub fn not_inplace(in_arr: &mut Vec<bool>) {
+    for i in 0..in_arr.len() {
+        in_arr[i] ^= true;
+    }
+}
+
+pub fn args_where<T>(in_arr: &Vec<T>, index: &Vec<bool>) -> Vec<T>
+    where T: Copy {
+
+    if in_arr.len() != index.len() {
+        panic!(
+            "Both arrays must be of the same length, not {} and {}",
+            in_arr.len(),
+            index.len(),
+        );
+    }
+
+    let mut out = Vec::<T>::new();
+
+    for i in 0..index.len() {
+        if index[i] {
+            out.push(in_arr[i]);
+        }
     }
 
     return out;

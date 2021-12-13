@@ -1,4 +1,6 @@
-pub fn input_as_string(filename: &std::path::Path) -> String {
+use std::path::Path;
+
+pub fn input_as_string(filename: &Path) -> String {
 
     let file = std::fs::read_to_string(filename);
 
@@ -10,7 +12,7 @@ pub fn input_as_string(filename: &std::path::Path) -> String {
 
 }
 
-pub fn input_as_iter<T: std::str::FromStr>(filename: &std::path::Path) -> Vec<T>
+pub fn input_as_iter<T: std::str::FromStr>(filename: &Path) -> Vec<T>
     where T: std::str::FromStr,
           <T as std::str::FromStr>::Err: std::fmt::Debug {
 
@@ -24,4 +26,15 @@ pub fn input_as_iter<T: std::str::FromStr>(filename: &std::path::Path) -> Vec<T>
 
     return output;
 
+}
+
+pub fn input_width(filename: &Path) -> u64 {
+
+    let mut output = 0;
+
+    for val in std::fs::read_to_string(filename).unwrap().lines() {
+        output = val.len();
+    }
+
+    return output as u64;
 }
