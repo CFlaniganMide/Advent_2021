@@ -2,7 +2,6 @@ use std::path::Path;
 
 use crate::input;
 use crate::array_math;
-use crate::diagnostics;
 use crate::diagnostics::DiagnosticArray;
 
 pub fn run_day3(filename: &str) {

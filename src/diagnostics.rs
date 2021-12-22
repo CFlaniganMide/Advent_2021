@@ -46,7 +46,7 @@ impl DiagnosticArray {
     }
 
     pub fn epsilon(&self) -> i64 {
-        let mut epsilon: i64 = (1 << (self.width)) - 1;
+        let epsilon: i64 = (1 << (self.width)) - 1;
 
         return epsilon ^ self.gamma();
 

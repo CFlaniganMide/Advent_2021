@@ -1,5 +1,4 @@
 use std::path;
-use std::str::FromStr;
 
 use crate::input;
 use crate::submarine;

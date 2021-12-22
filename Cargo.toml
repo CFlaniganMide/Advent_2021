@@ -1,5 +1,5 @@
 [package]
-name = "Advent_2021"
+name = "advent_2021"
 version = "0.1.0"
 authors = ["MIDE\\cflanigan <cflanigan@mide.com>"]
 edition = "2021"
