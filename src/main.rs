@@ -5,12 +5,14 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 
 mod array_math;
 mod bingo;
 mod diagnostics;
 mod geometry;
 mod input;
+mod lanternfish;
 mod submarine;
 
 fn main() {
@@ -25,6 +27,7 @@ fn main() {
         "day3" => day3::run_day3("./inputs/day3.txt"),
         "day4" => day4::run_day4("./inputs/day4.txt"),
         "day5" => day5::run_day5("./inputs/day5.txt"),
+        "day6" => day6::run_day6("./inputs/day6.txt"),
         _ => println!("No valid config for {}", args[1]),
     }
 

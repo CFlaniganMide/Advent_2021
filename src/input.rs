@@ -12,13 +12,29 @@ pub fn input_as_string(filename: &Path) -> String {
 
 }
 
-pub fn input_as_iter<T: std::str::FromStr>(filename: &Path) -> Vec<T>
+pub fn input_as_iter_lines<T: std::str::FromStr>(filename: &Path) -> Vec<T>
     where T: std::str::FromStr,
           <T as std::str::FromStr>::Err: std::fmt::Debug {
 
     let mut output = Vec::<T>::new();
 
     for val in std::fs::read_to_string(filename).unwrap().lines() {
+
+        output.push(val.parse().unwrap());
+
+    }
+
+    return output;
+
+}
+
+pub fn input_as_iter<T: std::str::FromStr>(filename: &Path, sep: &str) -> Vec<T>
+    where T: std::str::FromStr,
+          <T as std::str::FromStr>::Err: std::fmt::Debug {
+
+    let mut output = Vec::<T>::new();
+
+    for val in std::fs::read_to_string(filename).unwrap().split(sep) {
 
         output.push(val.parse().unwrap());
 

@@ -7,12 +7,12 @@ pub fn run_day1(filename: &str) {
 
     println!(
         "part 1: {}",
-        part1(input::input_as_iter::<i64>(path::Path::new(filename))),
+        part1(input::input_as_iter_lines::<i64>(path::Path::new(filename))),
     );
 
     println!(
         "part 2: {}",
-        part2(input::input_as_iter::<i64>(path::Path::new(filename))),
+        part2(input::input_as_iter_lines::<i64>(path::Path::new(filename))),
     );
 
 }

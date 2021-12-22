@@ -122,3 +122,14 @@ pub fn args_where<T>(in_arr: &Vec<T>, index: &Vec<bool>) -> Vec<T>
     return out;
 
 }
+
+pub fn accumulate<T>(in_vec: &Vec<T>) -> T where T: std::ops::AddAssign + Clone {
+    let mut out: T = in_vec[0].clone();
+
+    for i in 1..in_vec.len() {
+        out += in_vec[i].clone();
+    }
+
+    return out;
+
+}

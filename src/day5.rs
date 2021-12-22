@@ -8,12 +8,12 @@ pub fn run_day5(filename: &str) {
 
     println!(
         "part 1: {}",
-        part1(input::input_as_iter::<geometry::Line2d>(path::Path::new(filename))),
+        part1(input::input_as_iter_lines::<geometry::Line2d>(path::Path::new(filename))),
     );
 
     println!(
         "part 2: {}",
-        part2(input::input_as_iter::<geometry::Line2d>(path::Path::new(filename))),
+        part2(input::input_as_iter_lines::<geometry::Line2d>(path::Path::new(filename))),
     );
 
 }
@@ -91,7 +91,7 @@ mod tests {
     #[test]
     fn test_day5_part1() {
         let test_file = "./inputs/test/day5.txt";
-        let test_input = input::input_as_iter::<geometry::Line2d>(
+        let test_input = input::input_as_iter_lines::<geometry::Line2d>(
             path::Path::new(test_file),
         );
         let target = 5;
@@ -102,7 +102,7 @@ mod tests {
     #[test]
     fn test_day5_part2() {
         let test_file = "./inputs/test/day5.txt";
-        let test_input = input::input_as_iter::<geometry::Line2d>(
+        let test_input = input::input_as_iter_lines::<geometry::Line2d>(
             path::Path::new(test_file),
         );
         let target = 12;

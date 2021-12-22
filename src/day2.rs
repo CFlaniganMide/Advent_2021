@@ -9,12 +9,12 @@ pub fn run_day2(filename: &str) {
 
     println!(
         "part 1: {}",
-        part1(input::input_as_iter::<submarine::Instruction>(path::Path::new(filename))),
+        part1(input::input_as_iter_lines::<submarine::Instruction>(path::Path::new(filename))),
     );
 
     println!(
         "part 2: {}",
-        part2(input::input_as_iter::<submarine::Instruction>(path::Path::new(filename))),
+        part2(input::input_as_iter_lines::<submarine::Instruction>(path::Path::new(filename))),
     );
 
 }

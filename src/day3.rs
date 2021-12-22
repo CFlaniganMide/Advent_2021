@@ -10,7 +10,7 @@ pub fn run_day3(filename: &str) {
         "part 1: {}",
         part1(
             array_math::apply(
-                input::input_as_iter::<String>(Path::new(filename)),
+                input::input_as_iter_lines::<String>(Path::new(filename)),
                 array_math::binary_to_int,
             ),
             input::input_width(Path::new(filename)) as usize,
@@ -21,7 +21,7 @@ pub fn run_day3(filename: &str) {
         "part 2: {}",
         part2(
             array_math::apply(
-                input::input_as_iter::<String>(Path::new(filename)),
+                input::input_as_iter_lines::<String>(Path::new(filename)),
                 array_math::binary_to_int,
             ),
             input::input_width(Path::new(filename)) as usize,
